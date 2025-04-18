@@ -45,20 +45,20 @@ output "db-subnet-OCID" {
   value = oci_core_subnet.vcn-db-subnet.id
 }
 
-# Outputs for public security list
+# Outputs for load balancer security list
 
-output "public-security-list-name" {
-  value = oci_core_security_list.public-security-list.display_name
+output "lb-security-list-name" {
+  value = oci_core_security_list.lb-security-list.display_name
 }
-output "public-security-list-OCID" {
-  value = oci_core_security_list.public-security-list.id
+output "lb-security-list-OCID" {
+  value = oci_core_security_list.lb-security-list.id
 }
 
-# Outputs for public subnet
+# Outputs for load balancer subnet
 
-output "public-subnet-name" {
-  value = oci_core_subnet.vcn-public-subnet.display_name
+output "lb-subnet-name" {
+  value = oci_core_subnet.vcn-lb-subnet.display_name
 }
-output "public-subnet-OCID" {
-  value = oci_core_subnet.vcn-public-subnet.id
+output "lb-subnet-OCID" {
+  value = oci_core_subnet.vcn-lb-subnet.id
 }
