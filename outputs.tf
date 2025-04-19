@@ -66,3 +66,12 @@ output "lb-subnet-name" {
 output "lb-subnet-OCID" {
   value = oci_core_subnet.vcn-lb-subnet.id
 }
+
+# Secret Output
+output "MySQL-Admin-Password" {
+  value = base64decode(data.oci_secrets_secretbundle.mysql-admin-pass.secret_bundle_content.0.content)
+}
+
+output "MySQL-Admin-User" {
+  value = base64decode(data.oci_secrets_secretbundle.mysql-admin-user.secret_bundle_content.0.content)
+}
