@@ -45,6 +45,10 @@ output "db-subnet-OCID" {
   value = oci_core_subnet.vcn-db-subnet.id
 }
 
+output "db-subnet-cidr" {
+  value = oci_core_subnet.vcn-db-subnet.cidr_block
+}
+
 # Outputs for load balancer security list
 
 output "lb-security-list-name" {
