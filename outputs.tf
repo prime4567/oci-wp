@@ -75,3 +75,24 @@ output "MySQL-Admin-Password" {
 output "MySQL-Admin-User" {
   value = base64decode(data.oci_secrets_secretbundle.mysql-admin-user.secret_bundle_content.0.content)
 }
+
+output "MySQL-IP-Address" {
+  value = oci_mysql_mysql_db_system.mds-wp.ip_address
+}
+
+output "MySQL-IP-Port" {
+  value = oci_mysql_mysql_db_system.mds-wp.port
+}
+
+output "MySQL-Version" {
+  value = oci_mysql_mysql_db_system.mds-wp.mysql_version
+}
+
+# Output for Compute
+output "Application-Server-Name" {
+  value = oci_core_instance.ubuntu_instance.display_name
+}
+
+output "Application-Server-IP-Address" {
+  value = oci_core_instance.ubuntu_instance.private_ip
+}
