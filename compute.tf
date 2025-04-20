@@ -19,4 +19,11 @@ resource "oci_core_instance" "ubuntu_instance" {
         ssh_authorized_keys = file(var.ssh_authorized_keys)
     } 
     preserve_boot_volume = false
+
+    agent_config {
+        plugins_config {
+        desired_state = "ENABLED"
+        name = "Bastion"
+        }
+    }
 }
