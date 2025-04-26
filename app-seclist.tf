@@ -29,9 +29,17 @@ resource "oci_core_security_list" "app-security-list"{
     protocol = "all" 
   }
 
+  # Egress rule to OCI CLoud Management Agent Service
+  egress_security_rules {
+    stateless = false
+    destination = "all-iad-services-in-oracle-services-network"
+    destination_type = "SERVICE_CIDR_BLOCK"
+    protocol = "6" 
+  }
+
   # Ingress rule from database subnet
   ingress_security_rules { 
-    stateless = false
+    stateless = true
     source = "10.0.1.0/24"
     source_type = "CIDR_BLOCK"
     # Get protocol numbers from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml TCP is 6
@@ -40,7 +48,7 @@ resource "oci_core_security_list" "app-security-list"{
 
   # Ingress rule from bastion subnet
   ingress_security_rules { 
-    stateless = false
+    stateless = true
     source = "10.0.255.240/29"
     source_type = "CIDR_BLOCK"
     # Get protocol numbers from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml TCP is 6

@@ -90,9 +90,14 @@ output "MySQL-Version" {
 
 # Output for Compute
 output "Application-Server-Name" {
-  value = oci_core_instance.ubuntu_instance.display_name
+  value = oci_core_instance.app_instance_2.display_name
 }
 
 output "Application-Server-IP-Address" {
-  value = oci_core_instance.ubuntu_instance.private_ip
+  value = oci_core_instance.app_instance_2.private_ip
 }
+
+# Basion Output
+#output "connection_details" {
+#  value = oci_bastion_session.app_bastion_session.ssh_metadata.command
+#}
